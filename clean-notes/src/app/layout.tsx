@@ -25,7 +25,7 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body className={`${spaceGrotesk.className} bg-zinc-950 text-white`}>
-        <div className='flex justify-between mx-20 mt-10'>
+        <div className='flex items-center justify-between mx-20 mt-10'>
           <h1 className='text-4xl font-bold'><Link href="/">CleanNotes</Link></h1>
           <Link href='/login'>Login</Link>
         </div>
