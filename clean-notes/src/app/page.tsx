@@ -1,6 +1,6 @@
+import NoNotes from '@/components/NoNotes'
 import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
-import Image from 'next/image'
 import React from 'react'
 
 const Home = () => {
@@ -29,10 +29,7 @@ const Home = () => {
 					</Badge>
 				</button>
 			</div>
-			<div className='flex flex-col items-center'>
-				<h1 className='text-4xl font-bold my-14'>You do not have any notes. Create one!</h1>
-				<Image src='/add-note.svg' width={300} height={300} alt='svg image ilustrating adding notes' />
-			</div>
+			<NoNotes />
 		</div>
 	)
 }
