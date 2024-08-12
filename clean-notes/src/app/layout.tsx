@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { Space_Grotesk } from 'next/font/google'
 import Link from 'next/link'
+import LeftSidebar from '@/components/LeftSidebar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,11 +26,10 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body className={`${spaceGrotesk.className} bg-zinc-950 text-white`}>
-        <div className='flex items-center justify-between mx-20 mt-10'>
-          <h1 className='text-4xl font-bold'><Link href="/">CleanNotes</Link></h1>
-          <Link href='/login'>Login</Link>
-        </div>
-        {children}
+				<div className='flex'>
+					<LeftSidebar />
+					<div className='w-10/12 h-full'>{children}</div>
+				</div>
 			</body>
 		</html>
 	)
