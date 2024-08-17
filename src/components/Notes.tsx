@@ -65,7 +65,7 @@ const Notes = () => {
 								<p className='text-sm'>Date: {note.date}</p>
 							</div>
 							<button>
-								<FaEdit className='text-xl text-white' />
+								<FaEdit className='text-xl text-white hover:scale-[1.1] duration-200' />
 							</button>
 						</div>
 					</CardFooter>
@@ -73,7 +73,7 @@ const Notes = () => {
 			))}
 			<Card className='flex items-center justify-center text-5xl text-white bg-zinc-800 border-zinc-700 '>
 				<Link href='/notes/create'>
-					<div className='p-10 duration-300 hover:rotate-180 hover:text-yellow-300'>
+					<div className='p-10 duration-300 opacity-75 hover:rotate-180 hover:text-yellow-300'>
 						<IoMdAdd />
 					</div>
 				</Link>
