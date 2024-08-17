@@ -49,7 +49,7 @@ export const notes = [
 
 const Notes = () => {
 	return (
-		<div className='grid grid-cols-4 gap-4 m-10'>
+		<div className='grid grid-cols-4 gap-4 mx-20 my-10'>
 			{notes.map((note, index) => (
 				<Card key={index} className='flex flex-col text-white bg-zinc-800 border-zinc-700 justify-stretch'>
 					<CardHeader>
