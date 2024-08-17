@@ -1,6 +1,5 @@
-import { notes } from '@/components/Notes'
 import React from 'react'
-import NoDeletedNotes from './NoDeletedNotes'
+import NoDeletedNotes from './EmptyDeletedNotes'
 import DeletedNotes from './DeletedNotes'
 
 const deletedNotes = []

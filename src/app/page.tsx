@@ -1,5 +1,5 @@
 import Categories from '@/components/Categories'
-import NoNotes from '@/components/NoNotes'
+import NoNotes from '@/components/EmptyNotes'
 import { Input } from '@/components/ui/input'
 import React from 'react'
 import { notes } from '@/components/Notes'
