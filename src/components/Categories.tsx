@@ -15,7 +15,7 @@ const Categories = () => {
 				<Badge
 					variant='outline'
 					className='px-3 py-2 m-2 text-white duration-300 hover:bg-yellow-300 hover:bg-opacity-30'>
-					Home
+					Work
 				</Badge>
 			</button>
 			<button>
@@ -29,7 +29,7 @@ const Categories = () => {
 				<Badge
 					variant='outline'
 					className='px-3 py-2 m-2 text-white duration-300 hover:bg-yellow-300 hover:bg-opacity-30'>
-					Work
+					Other
 				</Badge>
 			</button>
 		</div>

@@ -24,8 +24,3 @@ export const createNoteAction = async ({
 
 	redirect('/')
 }
-
-export const getAllNotesAction = async () => {
-	const notes = await getAllNotes()
-	return notes
-}

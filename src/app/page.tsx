@@ -3,11 +3,11 @@ import NoNotes from '@/components/EmptyNotes'
 import { Input } from '@/components/ui/input'
 import React from 'react'
 import Notes from '@/components/Notes'
-import { getAllNotesAction } from '@/actions/notes'
+import { getAllNotes } from '@/db/notes'
 
 
 const Home = async () => {
-	const notes = await getAllNotesAction()
+	const notes = await getAllNotes()
 
 	return (
 		<div className='flex flex-col items-center min-h-screen '>
