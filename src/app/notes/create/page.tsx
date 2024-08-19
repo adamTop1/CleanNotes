@@ -1,4 +1,4 @@
-import CreateNoteForm from '@/components/CreateNoteForm'
+import CreateNoteForm from './CreateNoteForm'
 import React from 'react'
 
 const CreateNote = () => {

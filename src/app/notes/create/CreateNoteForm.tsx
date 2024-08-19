@@ -7,9 +7,11 @@ import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { Checkbox } from './ui/checkbox'
+import { Checkbox } from '../../../components/ui/checkbox'
+import { OnSubmitAction } from './OnSubmitAction'
 
-const formSchema = z.object({
+
+export const formSchema = z.object({
 	title: z.string().min(2).max(50),
 	description: z.string().min(2),
 	isFavorite: z.boolean(),
@@ -25,8 +27,8 @@ export default function CreateNoteForm() {
 		},
 	})
 
-	function onSubmit(values: z.infer<typeof formSchema>) {
-		console.log(values)
+	async function onSubmit(data: z.infer<typeof formSchema>) {
+		await OnSubmitAction(data)
 	}
 
 	return (
