@@ -1,10 +1,11 @@
+'use server'
+
 import Link from 'next/link'
 import React from 'react'
-import { FaEdit, FaHeart } from 'react-icons/fa'
-import { MdDelete } from 'react-icons/md'
-import { IoArrowRedoSharp } from "react-icons/io5";
+import { IoArrowRedoSharp } from 'react-icons/io5'
 import { IoMdAdd } from 'react-icons/io'
-import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from './ui/card'
+import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from '../../components/ui/card'
+import OnSubmitButtons from './OnSubmitButtons'
 
 const Notes = ({
 	notes,
@@ -37,11 +38,7 @@ const Notes = ({
 							<div className='flex flex-col justify-between w-full'>
 								<p className='text-sm'>Date: {formattedDate}</p>
 								<div className='flex items-center justify-between mt-5 text-xl text-zinc-400'>
-									<div className='flex duration-200'>
-										<FaEdit className='mx-3 duration-200 hover:text-white' />
-										<FaHeart className='mx-3 duration-200 hover:text-red-500' />
-										<MdDelete className='mx-3 duration-200 hover:text-red-500' />
-									</div>
+									<OnSubmitButtons noteId={note.id} noteFav={note.isFavorite} />
 									<IoArrowRedoSharp className='mx-1 text-3xl text-white duration-150 ' />
 								</div>
 							</div>

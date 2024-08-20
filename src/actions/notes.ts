@@ -1,6 +1,6 @@
 'use server'
 
-import { createNote, getAllNotes } from '@/db/notes'
+import { createNote, getAllNotes, makeFavorite } from '@/db/notes'
 import { redirect } from 'next/navigation'
 
 export const createNoteAction = async ({
@@ -23,4 +23,9 @@ export const createNoteAction = async ({
 	})
 
 	redirect('/')
+}
+
+export const makeFavoriteAction = async (noteId: string, favorite: boolean) => {
+	const note = await makeFavorite(noteId, favorite)
+	return note
 }

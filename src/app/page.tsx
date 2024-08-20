@@ -2,7 +2,7 @@ import Categories from '@/components/Categories'
 import NoNotes from '@/components/EmptyNotes'
 import { Input } from '@/components/ui/input'
 import React from 'react'
-import Notes from '@/components/Notes'
+import Notes  from './notes/Notes'
 import { getAllNotes } from '@/db/notes'
 
 
