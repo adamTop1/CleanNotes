@@ -38,3 +38,15 @@ export const makeFavorite = async (noteId: string, favorite: boolean) => {
 	})
 	return note
 }
+
+export const moveToTrash = async (noteId: string) => {
+	const note = await prisma.note.update({
+		where: {
+			id: noteId,
+		},
+		data: {
+			inTrash: true,
+		},
+	})
+	return note
+}

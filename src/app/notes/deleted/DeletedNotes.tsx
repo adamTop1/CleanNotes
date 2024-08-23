@@ -4,12 +4,22 @@ import React from 'react'
 import OnSubmitButtons from '../OnSubmitButtons'
 import { IoArrowRedoSharp } from 'react-icons/io5'
 
-const DeletedNotes = async () => {
-	const notes = await getAllNotes()
-
+const DeletedNotes = async ({
+	deletedNotes,
+}: {
+	deletedNotes: {
+		id: string
+		title: string
+		description: string
+		isFavorite: boolean
+		inTrash: boolean
+		createdAt: Date
+		userId: string
+	}[]
+}) => {
 	return (
 		<div className='grid grid-cols-4 gap-4 mx-20 my-10'>
-			{notes.map((note, index) => {
+			{deletedNotes.map((note, index) => {
 				const formattedDate = note.createdAt.toLocaleDateString('en-US', {
 					year: 'numeric',
 					month: 'long',
