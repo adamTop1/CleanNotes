@@ -1,13 +1,17 @@
 'use client'
 
 import { makeFavoriteAction, moveToTrashAction } from '@/actions/notes'
-import React from 'react'
+import React, { useState } from 'react'
 import { FaEdit, FaHeart } from 'react-icons/fa'
 import { MdDelete } from 'react-icons/md'
 
 const OnSubmitButtons = ({ noteId, noteFav }: { noteId: string; noteFav: boolean }) => {
+	const [isFavourite, setIsFavourite] = useState(noteFav)
+
 	const handleFavNote = async () => {
-		const favNote = await makeFavoriteAction(noteId, true)
+		setIsFavourite(!isFavourite)
+		const favNote = await makeFavoriteAction(noteId, isFavourite)
+		console.log(favNote);
 		return favNote
 	}
 
@@ -28,7 +32,7 @@ const OnSubmitButtons = ({ noteId, noteFav }: { noteId: string; noteFav: boolean
 				<FaEdit className='mx-3 duration-200 hover:text-white' />
 			</button>
 			<button onClick={handleFavNote}>
-				<FaHeart className={noteFav ? 'text-red-500 mx-3' : 'mx-3 duration-200 hover:text-red-500 hover:opacity-75'} />
+				<FaHeart className={isFavourite ? 'text-red-500 mx-3' : 'mx-3 duration-200 hover:text-red-500 hover:opacity-75'} />
 			</button>
 			<button onClick={handleMoveToTrash}>
 				<MdDelete className='mx-3 duration-200 hover:text-red-500 hover:opacity-75' />

@@ -26,9 +26,9 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body className={`${spaceGrotesk.className} bg-zinc-950 text-white`}>
-				<div className='flex'>
+				<div className='relative flex'>
 					<LeftSidebar />
-					<div className='w-10/12 h-full'>{children}</div>
+					<div className='w-10/12 h-full '>{children}</div>
 				</div>
 			</body>
 		</html>

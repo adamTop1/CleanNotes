@@ -8,7 +8,7 @@ const LeftSidebar = () => {
     const pathname = usePathname()
    
 	return (
-		<div className='flex flex-col justify-between w-2/12 h-screen border-r-2 border-yellow-300 '>
+		<div className='sticky top-0 flex flex-col justify-between w-2/12 h-screen border-r-2 border-yellow-300 '>
 			<h1 className='mx-auto mt-10 text-4xl font-bold'>
 				<Link href='/'>CleanNotes</Link>
 			</h1>
