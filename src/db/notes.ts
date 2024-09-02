@@ -50,3 +50,12 @@ export const moveToTrash = async (noteId: string) => {
 	})
 	return note
 }
+
+export const deleteNote = (noteId: string) => {
+	const note = prisma.note.delete({
+		where: {
+			id: noteId,
+		},
+	})
+	return note
+}

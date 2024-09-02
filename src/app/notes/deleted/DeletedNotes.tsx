@@ -3,6 +3,7 @@ import { getAllNotes } from '@/db/notes'
 import React from 'react'
 import OnSubmitButtons from '../OnSubmitButtons'
 import { IoArrowRedoSharp } from 'react-icons/io5'
+import OnSubmitDelete from './OnSubmitDelete'
 
 const DeletedNotes = async ({
 	deletedNotes,
@@ -35,7 +36,7 @@ const DeletedNotes = async ({
 							<div className='flex flex-col justify-between w-full'>
 								<p className='text-sm'>Date: {formattedDate}</p>
 								<div className='flex items-center justify-between mt-5 text-xl text-zinc-400'>
-									<OnSubmitButtons noteId={note.id} noteFav={note.isFavorite} />
+									<OnSubmitDelete noteId={note.id}/>
 									<IoArrowRedoSharp className='mx-1 text-3xl text-white duration-150 ' />
 								</div>
 							</div>
