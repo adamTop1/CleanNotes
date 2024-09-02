@@ -1,7 +1,4 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card'
-import { getAllNotes } from '@/db/notes'
-import React from 'react'
-import OnSubmitButtons from '../OnSubmitButtons'
 import { IoArrowRedoSharp } from 'react-icons/io5'
 import OnSubmitDelete from './OnSubmitDelete'
 

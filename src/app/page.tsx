@@ -26,6 +26,7 @@ const Home = async ({
 			{activeAllNotes.length === 0 && <NoNotes />}
 
 			<SearchNotes />
+			
 			{activeFilteredNotes.length === 0 ? (
 				<>
 					<div className='flex flex-col items-center my-12 text-2xl'>
