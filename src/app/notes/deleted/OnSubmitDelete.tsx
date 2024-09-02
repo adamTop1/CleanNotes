@@ -1,7 +1,7 @@
 'use client'
 
 import { Badge } from '@/components/ui/badge'
-import { deleteNoteAction } from '@/actions/notes'
+import { deleteNoteAction, restoreNoteAction } from '@/actions/notes'
 
 const OnSubmitDelete = ({ noteId }: { noteId: string }) => {
 	const deleteNote = async () => {
@@ -10,7 +10,11 @@ const OnSubmitDelete = ({ noteId }: { noteId: string }) => {
 		}
 	}
 
-	const restoreNote = () => {}
+	const restoreNote = async () => {
+		if (confirm('Are you sure you want to restore this note?')) {
+			await restoreNoteAction(noteId)
+		}
+	}
 
 	return (
 		<div className='flex gap-4 '>

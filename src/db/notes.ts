@@ -59,3 +59,15 @@ export const deleteNote = (noteId: string) => {
 	})
 	return note
 }
+
+export const restoreNote = async (noteId: string) => {
+	const note = await prisma.note.update({
+		where: {
+			id: noteId,
+		},
+		data: {
+			inTrash: false,
+		},
+	})
+	return note
+}
