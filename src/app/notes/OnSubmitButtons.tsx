@@ -9,9 +9,8 @@ const OnSubmitButtons = ({ noteId, noteFav }: { noteId: string; noteFav: boolean
 	const [isFavourite, setIsFavourite] = useState(noteFav)
 
 	const handleFavNote = async () => {
-		setIsFavourite(!isFavourite)
-		const favNote = await makeFavoriteAction(noteId, isFavourite)
-		console.log(favNote);
+		await setIsFavourite(!isFavourite)
+		const favNote = await makeFavoriteAction(noteId, !isFavourite)
 		return favNote
 	}
 
@@ -29,13 +28,13 @@ const OnSubmitButtons = ({ noteId, noteFav }: { noteId: string; noteFav: boolean
 	return (
 		<div className='flex duration-200'>
 			<button onClick={handleEditNote}>
-				<FaEdit className='mx-3 duration-200 hover:text-white' />
+				<FaEdit className='mx-3 duration-200 hover:text-white hover:scale-110' />
 			</button>
 			<button onClick={handleFavNote}>
-				<FaHeart className={isFavourite ? 'text-red-500 mx-3' : 'mx-3 duration-200 hover:text-red-500 hover:opacity-75'} />
+				<FaHeart className={isFavourite ? 'text-red-500 mx-3 opacity-50 hover:opacity-100 duration-200' : 'mx-3 duration-200 hover:text-red-500 hover:scale-110 '} />
 			</button>
 			<button onClick={handleMoveToTrash}>
-				<MdDelete className='mx-3 duration-200 hover:text-red-500 hover:opacity-75' />
+				<MdDelete className='mx-3 duration-200 hover:text-white hover:scale-110' />
 			</button>
 		</div>
 	)

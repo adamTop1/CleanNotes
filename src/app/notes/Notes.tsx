@@ -20,6 +20,7 @@ const Notes = ({
 		userId: string
 	}[]
 }) => {
+
 	return (
 		<div className='grid grid-cols-4 gap-4 mx-20 my-10'>
 			{notes.map((note, index) => {
