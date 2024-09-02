@@ -16,7 +16,6 @@ const FavoriteNotes = ({
 		userId: string
 	}[]
 }) => {
-
 	const notes = favNotes.filter(note => note.inTrash === false)
 
 	return (

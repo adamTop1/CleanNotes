@@ -1,6 +1,6 @@
 'use server'
 
-import { createNote, getAllNotes, makeFavorite, moveToTrash, deleteNote, restoreNote } from '@/db/notes'
+import { createNote, getAllNotes, makeFavorite, moveToTrash, deleteNote, restoreNote, getFilteredNotes } from '@/db/notes'
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 
@@ -52,4 +52,10 @@ export const restoreNoteAction = async (noteId: string) => {
 	revalidatePath('/notes/deleted')
 	revalidatePath('/notes/favorites')
 	return note
+}
+
+export const getFilteredNotesAction = async (search: string) => {
+	const notes = await getFilteredNotes(search)
+	revalidatePath('/')
+	return notes
 }

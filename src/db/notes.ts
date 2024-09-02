@@ -27,6 +27,26 @@ export const getAllNotes = async () => {
 	return notes
 }
 
+export const getFilteredNotes = async (search: string) => {
+	const notes = await prisma.note.findMany({
+		where: {
+			OR: [
+				{
+					title: {
+						contains: search,
+					},
+				},
+				{
+					description: {
+						contains: search,
+					},
+				},
+			],
+		},
+	})
+	return notes
+}
+
 export const makeFavorite = async (noteId: string, favorite: boolean) => {
 	const note = await prisma.note.update({
 		where: {
