@@ -14,14 +14,9 @@ const Home = async ({
 	const query = searchParams?.query || ''
 
 	const filteredNotes = await getFilteredNotes(query)
-	const allNotes = await getAllNotes()
-
-	if (!filteredNotes) {
-		return {
-			notFound: true,
-		}
-	}
 	const activeFilteredNotes = filteredNotes.filter(note => note.inTrash === false)
+
+	const allNotes = await getAllNotes()
 	const activeAllNotes = allNotes.filter(note => note.inTrash === false)
 
 	return (
