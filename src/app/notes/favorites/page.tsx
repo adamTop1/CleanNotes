@@ -7,7 +7,8 @@ import { getAllNotes } from '@/db/notes'
 const DeletedNotesPage = async () => {
 	const notes = await getAllNotes()
 
-	const favNotes = notes.filter((note) => note.isFavorite === true)
+	const favNotes = notes.filter((note) => note.isFavorite === true).filter((note) => note.inTrash === false)
+	console.log(favNotes);
 
 	return (
 		<div className='flex flex-col items-center justify-start w-full min-h-screen'>

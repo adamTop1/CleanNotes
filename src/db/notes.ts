@@ -23,7 +23,20 @@ export const createNote = async ({
 }
 
 export const getAllNotes = async () => {
-	const notes = await prisma.note.findMany()
+	const notes = await prisma.note.findMany({
+		where: {
+			inTrash: false,
+		},
+	})
+	return notes
+}
+
+export const getAllTrashNotes = async () => {
+	const notes = await prisma.note.findMany({
+		where: {
+			inTrash: true,
+		},
+	})
 	return notes
 }
 
@@ -35,11 +48,13 @@ export const getFilteredNotes = async (search: string) => {
 					title: {
 						contains: search,
 					},
+					inTrash: false,
 				},
 				{
 					description: {
 						contains: search,
 					},
+					inTrash: false,
 				},
 			],
 		},

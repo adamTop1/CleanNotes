@@ -3,9 +3,9 @@ import { IoArrowRedoSharp } from 'react-icons/io5'
 import OnSubmitDelete from './OnSubmitDelete'
 
 const DeletedNotes = async ({
-	deletedNotes,
+	trashNotes,
 }: {
-	deletedNotes: {
+	trashNotes: {
 		id: string
 		title: string
 		description: string
@@ -17,7 +17,7 @@ const DeletedNotes = async ({
 }) => {
 	return (
 		<div className='grid grid-cols-4 gap-4 mx-20 my-10'>
-			{deletedNotes.map((note, index) => {
+			{trashNotes.map((note, index) => {
 				const formattedDate = note.createdAt.toLocaleDateString('en-US', {
 					year: 'numeric',
 					month: 'long',
