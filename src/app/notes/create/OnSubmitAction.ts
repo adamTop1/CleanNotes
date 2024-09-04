@@ -8,10 +8,11 @@ export async function OnSubmitAction(data: z.infer<typeof formSchema>) {
 	const title = data.title
 	const description = data.description
 	const isFavorite = data.isFavorite
+	const category = data.category
 
 	if (!title || !description) {
 		throw new Error('Title and description are required')
 	}
-	const note = await createNoteAction({ title, description, isFavorite })
+	const note = await createNoteAction({ title, description, isFavorite, category })
 	return note
 }

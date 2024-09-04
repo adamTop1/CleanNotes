@@ -3,15 +3,18 @@
 import { createNote, getAllNotes, makeFavorite, moveToTrash, deleteNote, restoreNote, getFilteredNotes } from '@/db/notes'
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
+import { Category } from '@/db/notes'
 
 export const createNoteAction = async ({
 	title,
 	description,
 	isFavorite,
+	category,
 }: {
 	title: string
 	description: string
 	isFavorite: boolean
+	category: Category
 }) => {
 	if (!title || !description) {
 		throw new Error('Title and description are required')
@@ -21,6 +24,7 @@ export const createNoteAction = async ({
 		description,
 		isFavorite,
 		userId: '9cc66271-c157-4163-92a2-0eea5bf4b78b',
+		category,
 	})
 
 	redirect('/')

@@ -1,15 +1,24 @@
 import { prisma } from './db'
 
+export enum Category {
+	WORK = 'WORK',
+	PERSONAL = 'PERSONAL',
+	SHOPPING = 'SHOPPING',
+	OTHER = 'OTHER',
+}
+
 export const createNote = async ({
 	title,
 	description,
 	isFavorite,
 	userId,
+	category,
 }: {
 	title: string
 	description: string
 	isFavorite: boolean
 	userId: string
+	category: Category
 }) => {
 	const note = await prisma.note.create({
 		data: {
@@ -17,6 +26,7 @@ export const createNote = async ({
 			description: description,
 			isFavorite: isFavorite,
 			userId: userId,
+			category: category,
 		},
 	})
 	return note

@@ -9,12 +9,15 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Checkbox } from '../../../components/ui/checkbox'
 import { OnSubmitAction } from './OnSubmitAction'
-
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Link } from 'lucide-react'
+import { Category } from '@/db/notes'
 
 export const formSchema = z.object({
 	title: z.string().min(2).max(50),
 	description: z.string().min(2),
 	isFavorite: z.boolean(),
+	category: z.enum(['PERSONAL', 'WORK', 'SHOPPING', 'OTHER']),
 })
 
 export default function CreateNoteForm() {
@@ -24,6 +27,7 @@ export default function CreateNoteForm() {
 			title: '',
 			description: '',
 			isFavorite: false,
+			category: 'PERSONAL',
 		},
 	})
 
@@ -82,6 +86,28 @@ export default function CreateNoteForm() {
 										Make as favorite note
 									</label>
 								</div>
+							</FormControl>
+						</FormItem>
+					)}
+				/>
+				<FormField
+					control={form.control}
+					name='category'
+					render={({ field }) => (
+						<FormItem>
+							<FormLabel>Category</FormLabel>
+							<FormControl>
+								<Select onValueChange={field.onChange} defaultValue={field.value} > 
+									<SelectTrigger className='w-[180px] bg-zinc-800 text-white'>
+										<SelectValue placeholder='Category ' />
+									</SelectTrigger>
+									<SelectContent className='text-white bg-zinc-800 '>
+										<SelectItem value='PERSONAL'>Personal</SelectItem>
+										<SelectItem value='WORK'>Work</SelectItem>
+										<SelectItem value='SHOPPING'>Shopping</SelectItem>
+										<SelectItem value='OTHER'>Other</SelectItem>
+									</SelectContent>
+								</Select>
 							</FormControl>
 						</FormItem>
 					)}

@@ -15,6 +15,7 @@ const Home = async ({
 
 	const filteredNotes = await getFilteredNotes(query)
 	const allNotes = await getAllNotes()
+	console.log(allNotes);
 
 	return (
 		<div className='flex flex-col items-center min-h-screen '>
@@ -23,7 +24,7 @@ const Home = async ({
 			{allNotes.length === 0 && <NoNotes />}
 
 			<SearchNotes />
-			
+
 			{filteredNotes.length === 0 ? (
 				<>
 					<div className='flex flex-col items-center my-12 text-2xl'>
