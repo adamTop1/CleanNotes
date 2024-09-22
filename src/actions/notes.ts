@@ -23,7 +23,7 @@ export const createNoteAction = async ({
 		title,
 		description,
 		isFavorite,
-		userId: '9cc66271-c157-4163-92a2-0eea5bf4b78b',
+		userId: '855d3478-a164-4b3c-992f-8827b43ddce2',
 		category,
 	})
 

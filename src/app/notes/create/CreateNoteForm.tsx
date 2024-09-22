@@ -10,8 +10,6 @@ import { Textarea } from '@/components/ui/textarea'
 import { Checkbox } from '../../../components/ui/checkbox'
 import { OnSubmitAction } from './OnSubmitAction'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { Link } from 'lucide-react'
-import { Category } from '@/db/notes'
 
 export const formSchema = z.object({
 	title: z.string().min(2).max(50),
