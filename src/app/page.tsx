@@ -11,34 +11,42 @@ const Home = async ({
 		query?: string
 	}
 }) => {
-	const query = searchParams?.query || ''
+	const query = searchParams?.query
+	let content
 
-	const filteredNotes = await getFilteredNotes(query)
-	const allNotes = await getAllNotes()
-	console.log(allNotes);
-
-	return (
-		<div className='flex flex-col items-center min-h-screen '>
-			<h2 className='pb-1 my-20 text-5xl border-b-2 border-yellow-300'>All notes</h2>
-
-			{allNotes.length === 0 && <NoNotes />}
-
-			<SearchNotes />
-
-			{filteredNotes.length === 0 ? (
+	if (!query) {
+		const notes = await getAllNotes()
+		content =
+			notes.length === 0 ? (
+				<NoNotes />
+			) : (
 				<>
-					<div className='flex flex-col items-center my-12 text-2xl'>
-						<p>There is no notes you are trying to search. Try another phase or create one.</p>
-						<p>Below are all notes.</p>
-					</div>
-					<Notes notes={allNotes} />
+					<Categories />
+					<Notes notes={notes} />
 				</>
+			)
+	}
+
+	if (query) {
+		const filteredNotes = await getFilteredNotes(query)
+		content =
+			filteredNotes.length === 0 ? (
+				<div className='mt-24 text-2xl'>There is no notes you are searching. Try another phase or create new one.</div>
 			) : (
 				<>
 					<Categories />
 					<Notes notes={filteredNotes} />
 				</>
-			)}
+			)
+	}
+
+	return (
+		<div className='flex flex-col items-center min-h-screen '>
+			<h2 className='pb-1 my-20 text-5xl border-b-2 border-yellow-300'>All notes</h2>
+
+			<SearchNotes />
+
+			{content}
 		</div>
 	)
 }
