@@ -27,7 +27,7 @@ const FavoriteNotes = ({
 					day: 'numeric',
 				})
 				return (
-					<Card key={index} className='flex flex-col justify-between text-white bg-zinc-800 border-zinc-700'>
+					<Card key={index} className='flex flex-col justify-between text-white bg-zinc-800 border-zinc-700 min-w-[300px]'>
 						<CardHeader>
 							<CardTitle>{note.title}</CardTitle>
 							<CardDescription>{note.description}</CardDescription>

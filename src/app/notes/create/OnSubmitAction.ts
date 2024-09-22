@@ -3,6 +3,7 @@
 import { z } from 'zod'
 import { formSchema } from './CreateNoteForm'
 import { createNoteAction } from '@/actions/notes'
+import { Category } from '@/db/notes'
 
 export async function OnSubmitAction(data: z.infer<typeof formSchema>) {
 	const title = data.title
@@ -13,6 +14,6 @@ export async function OnSubmitAction(data: z.infer<typeof formSchema>) {
 	if (!title || !description) {
 		throw new Error('Title and description are required')
 	}
-	const note = await createNoteAction({ title, description, isFavorite, category })
+	const note = await createNoteAction({ title, description, isFavorite, category: category as Category })
 	return note
 }
