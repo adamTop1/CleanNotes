@@ -116,3 +116,24 @@ export const restoreNote = async (noteId: string) => {
 	})
 	return note
 }
+
+export const editNote = async ({
+	noteId,
+	title,
+	description,
+}: {
+	noteId: string
+	title: string
+	description: string
+}) => {
+	const note = await prisma.note.update({
+		where: {
+			id: noteId,
+		},
+		data: {
+			title: title,
+			description: description,
+		},
+	})
+	return note
+}

@@ -1,7 +1,7 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card'
 import React from 'react'
 import OnSubmitButtons from '../OnSubmitButtons'
-import { IoArrowRedoSharp } from 'react-icons/io5'
+import { SlArrowRight } from 'react-icons/sl'
 
 const FavoriteNotes = ({
 	favNotes,
@@ -27,7 +27,9 @@ const FavoriteNotes = ({
 					day: 'numeric',
 				})
 				return (
-					<Card key={index} className='flex flex-col justify-between text-white bg-zinc-800 border-zinc-700 min-w-[300px]'>
+					<Card
+						key={index}
+						className='flex flex-col justify-between text-white bg-zinc-800 border-zinc-700 min-w-[300px]'>
 						<CardHeader>
 							<CardTitle>{note.title}</CardTitle>
 							<CardDescription>{note.description}</CardDescription>
@@ -36,8 +38,8 @@ const FavoriteNotes = ({
 							<div className='flex flex-col justify-between w-full'>
 								<p className='text-sm'>Date: {formattedDate}</p>
 								<div className='flex items-center justify-between mt-5 text-xl text-zinc-400'>
-									<OnSubmitButtons noteId={note.id} noteFav={note.isFavorite} />
-									<IoArrowRedoSharp className='mx-1 text-3xl text-white duration-150 ' />
+									<OnSubmitButtons noteId={note.id} noteFav={note.isFavorite} title={note.title} description={note.description} />
+									<SlArrowRight className='mx-1 text-3xl text-white duration-150 hover:scale-75 ' />
 								</div>
 							</div>
 						</CardFooter>

@@ -1,6 +1,8 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card'
-import { IoArrowRedoSharp } from 'react-icons/io5'
 import OnSubmitDelete from './OnSubmitDelete'
+import { SlArrowRight } from "react-icons/sl";
+
+
 
 const DeletedNotes = async ({
 	trashNotes,
@@ -34,7 +36,7 @@ const DeletedNotes = async ({
 								<p className='text-sm'>Date: {formattedDate}</p>
 								<div className='flex items-center justify-between mt-5 text-xl text-zinc-400'>
 									<OnSubmitDelete noteId={note.id}/>
-									<IoArrowRedoSharp className='mx-1 text-3xl text-white duration-150 ' />
+									<SlArrowRight className='mx-1 text-3xl text-white duration-150 hover:scale-75 ' />
 								</div>
 							</div>
 						</CardFooter>
