@@ -50,9 +50,9 @@ const OnSubmitButtons = ({ noteId, noteFav }: { noteId: string; noteFav: boolean
 			</button>
 			<AlertDialog>
 				<AlertDialogTrigger asChild>
-					<MdDelete className='mx-1 text-3xl duration-150 hover:text-white hover:scale-110 ' />
+					<MdDelete className='mx-1 text-3xl duration-150 cursor-pointer hover:text-white hover:scale-110 ' />
 				</AlertDialogTrigger>
-				<AlertDialogContent className='bg-zinc-900'>
+				<AlertDialogContent className='bg-zinc-800'>
 					<AlertDialogHeader>
 						<AlertDialogTitle>Are you sure?</AlertDialogTitle>
 						<AlertDialogDescription>
@@ -60,7 +60,7 @@ const OnSubmitButtons = ({ noteId, noteFav }: { noteId: string; noteFav: boolean
 						</AlertDialogDescription>
 					</AlertDialogHeader>
 					<AlertDialogFooter>
-						<AlertDialogCancel className='duration-200 bg-zinc-900 hover:bg-zinc-800 hover:text-white'>
+						<AlertDialogCancel className='duration-200 bg-zinc-800 hover:bg-zinc-900 hover:text-white'>
 							Cancel
 						</AlertDialogCancel>
 						<AlertDialogAction

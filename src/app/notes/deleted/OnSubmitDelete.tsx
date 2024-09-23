@@ -31,7 +31,7 @@ const OnSubmitDelete = ({ noteId }: { noteId: string }) => {
 					<AlertDialogTrigger asChild>
 						<Button variant='destructive'>Delete</Button>
 					</AlertDialogTrigger>
-					<AlertDialogContent className='bg-zinc-900'>
+					<AlertDialogContent className='bg-zinc-800'>
 						<AlertDialogHeader>
 							<AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
 							<AlertDialogDescription>
@@ -39,7 +39,7 @@ const OnSubmitDelete = ({ noteId }: { noteId: string }) => {
 							</AlertDialogDescription>
 						</AlertDialogHeader>
 						<AlertDialogFooter>
-							<AlertDialogCancel className='duration-200 bg-zinc-900 hover:bg-zinc-800 hover:text-white'>
+							<AlertDialogCancel className='duration-200 bg-zinc-800 hover:bg-zinc-900 hover:text-white'>
 								Cancel
 							</AlertDialogCancel>
 							<AlertDialogAction
@@ -55,7 +55,7 @@ const OnSubmitDelete = ({ noteId }: { noteId: string }) => {
 					<AlertDialogTrigger asChild>
 						<Button variant='secondary'>Restore</Button>
 					</AlertDialogTrigger>
-					<AlertDialogContent className='bg-zinc-900'>
+					<AlertDialogContent className='bg-zinc-800'>
 						<AlertDialogHeader>
 							<AlertDialogTitle>Do you want to restore your note from trash?</AlertDialogTitle>
 							<AlertDialogDescription>
@@ -63,7 +63,7 @@ const OnSubmitDelete = ({ noteId }: { noteId: string }) => {
 							</AlertDialogDescription>
 						</AlertDialogHeader>
 						<AlertDialogFooter>
-							<AlertDialogCancel className='duration-200 bg-zinc-900 hover:bg-zinc-800 hover:text-white'>
+							<AlertDialogCancel className='duration-200 bg-zinc-800 hover:bg-zinc-900 hover:text-white'>
 								Cancel
 							</AlertDialogCancel>
 							<AlertDialogAction

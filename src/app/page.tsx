@@ -12,6 +12,7 @@ const Home = async ({
 	}
 }) => {
 	const query = searchParams?.query
+	
 	let content
 
 	if (!query) {
