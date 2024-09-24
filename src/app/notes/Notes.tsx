@@ -21,6 +21,8 @@ const Notes = ({
 	}[]
 }) => {
 
+	
+
 	return (
 		<div className='grid grid-cols-4 gap-4 mx-20 my-10'>
 			{notes.map((note, index) => {
@@ -29,11 +31,12 @@ const Notes = ({
 					month: 'long',
 					day: 'numeric',
 				})
+				const description = note.description.length > 100 ? note.description.substring(0, 100) + '...' : note.description
 				return (
-					<Card key={index} className='flex flex-col justify-between text-white bg-zinc-800 border-zinc-700 min-w-[300px]'>
+					<Card key={index} className='flex flex-col justify-between text-white bg-zinc-800 border-zinc-700 '>
 						<CardHeader>
 							<CardTitle>{note.title}</CardTitle>
-							<CardDescription>{note.description}</CardDescription>
+							<CardDescription className='break-words' >{description}</CardDescription>
 						</CardHeader>
 						<CardFooter>
 							<div className='flex flex-col justify-between w-full'>
