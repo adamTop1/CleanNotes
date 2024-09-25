@@ -3,7 +3,6 @@
 import { useSearchParams, usePathname, useRouter } from 'next/navigation'
 import { Badge } from './ui/badge'
 import React from 'react'
-import { twMerge } from 'tailwind-merge'
 import cn from 'clsx'
 
 const Categories = () => {
@@ -24,8 +23,6 @@ const Categories = () => {
 		}
 		router.push(`${pathname}?${params.toString()}`)
 	}
-
-	const isActive = searchParams.get('category')
 
 	return (
 		<div className='flex my-5'>
