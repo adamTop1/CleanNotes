@@ -1,50 +1,21 @@
-import Categories from '@/components/Categories'
-import NoNotes from '@/components/EmptyNotes'
-import Notes from './notes/Notes'
-import { Category, getAllNotes, getFilteredNotes } from '@/db/notes'
-import SearchNotes from '@/components/SearchNotes'
+import { Button } from "@/components/ui/button"
+import Image from "next/image"
+import Link from "next/link"
 
-const Home = async ({
-	searchParams,
-}: {
-	searchParams?: {
-		query?: string
-		category?: string
-	}
-}) => {
-	const query = searchParams?.query || ''
-	const category = searchParams?.category || null
-
-	let content
-	let modifiedCategory
-
-	if (category !== null) {
-		modifiedCategory = category.toUpperCase()
-	}
-
-	if (!query || !category) {
-		const notes = await getAllNotes()
-		content = notes.length === 0 ? <NoNotes /> : <Notes notes={notes} />
-	}
-
-	if (query || modifiedCategory) {
-		const filteredNotes = await getFilteredNotes(query, modifiedCategory as Category)
-		content =
-			filteredNotes.length === 0 ? (
-				<div className='mt-24 text-2xl'>There is no notes you are searching. Try another phase or create new one.</div>
-			) : (
-				<Notes notes={filteredNotes} />
-			)
-	}
-
+const Home = async () => {
 	return (
-		<div className='flex flex-col items-center min-h-screen '>
-			<h2 className='pb-1 my-20 text-5xl border-b-2 border-yellow-300'>All notes</h2>
-
-			<SearchNotes />
-			<Categories />
-
-			{content}
+		<div className="grid w-full h-screen grid-cols-2 col">
+			<div className="flex flex-col items-center justify-center gap-7">
+				<h2 className="text-3xl font-bold">CleanNotes</h2>
+				<p>Collect everything in one place!</p>
+				<div className="flex gap-4 ">
+					<Button className="text-black bg-yellow-400 border border-black hover:bg-yellow-400/85"><Link href='/notes'>Get Started</Link></Button>
+					<Button className="" variant="secondary"><Link href='/login'>Login</Link></Button>
+				</div>
+			</div>
+			<div className="flex items-center justify-center">
+				<Image src='/ideas-flow.svg' alt='notes' width={350} height={400} />
+			</div>
 		</div>
 	)
 }

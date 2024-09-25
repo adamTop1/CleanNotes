@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { Space_Grotesk } from 'next/font/google'
-import Link from 'next/link'
 import LeftSidebar from '@/components/LeftSidebar'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -26,10 +25,7 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body className={`${spaceGrotesk.className} bg-zinc-950 text-white`}>
-				<div className='relative flex'>
-					<LeftSidebar />
-					<div className='w-10/12 h-full '>{children}</div>
-				</div>
+				{children}
 			</body>
 		</html>
 	)
