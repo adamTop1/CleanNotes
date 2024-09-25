@@ -11,8 +11,14 @@ const Home = async ({
 		query?: string
 	}
 }) => {
-	const query = searchParams?.query
 	
+	const categoryChange = async (val: string) => {
+		'use server'
+		console.log(val)
+	}
+
+	const query = searchParams?.query
+
 	let content
 
 	if (!query) {
@@ -22,7 +28,7 @@ const Home = async ({
 				<NoNotes />
 			) : (
 				<>
-					<Categories />
+					<Categories categoryChange={categoryChange} />
 					<Notes notes={notes} />
 				</>
 			)
@@ -35,7 +41,7 @@ const Home = async ({
 				<div className='mt-24 text-2xl'>There is no notes you are searching. Try another phase or create new one.</div>
 			) : (
 				<>
-					<Categories />
+					<Categories categoryChange={categoryChange} />
 					<Notes notes={filteredNotes} />
 				</>
 			)
