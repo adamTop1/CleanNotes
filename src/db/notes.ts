@@ -50,7 +50,7 @@ export const getAllTrashNotes = async () => {
 	return notes
 }
 
-export const getFilteredNotes = async (search: string) => {
+export const getFilteredNotes = async (search: string, category: Category) => {
 	const notes = await prisma.note.findMany({
 		where: {
 			OR: [
@@ -67,6 +67,7 @@ export const getFilteredNotes = async (search: string) => {
 					inTrash: false,
 				},
 			],
+			category: category,
 		},
 	})
 	return notes

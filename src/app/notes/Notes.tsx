@@ -33,7 +33,7 @@ const Notes = ({
 				})
 				const description = note.description.length > 100 ? note.description.substring(0, 100) + '...' : note.description
 				return (
-					<Card key={index} className='flex flex-col justify-between text-white bg-zinc-800 border-zinc-700 '>
+					<Card key={index} className='flex flex-col justify-between text-white bg-zinc-800 border-zinc-700 min-w-[300px] '>
 						<CardHeader>
 							<CardTitle>{note.title}</CardTitle>
 							<CardDescription className='break-words' >{description}</CardDescription>

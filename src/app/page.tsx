@@ -1,7 +1,7 @@
 import Categories from '@/components/Categories'
 import NoNotes from '@/components/EmptyNotes'
 import Notes from './notes/Notes'
-import { getAllNotes, getFilteredNotes } from '@/db/notes'
+import { Category, getAllNotes, getFilteredNotes } from '@/db/notes'
 import SearchNotes from '@/components/SearchNotes'
 
 const Home = async ({
@@ -9,41 +9,31 @@ const Home = async ({
 }: {
 	searchParams?: {
 		query?: string
+		category?: string
 	}
 }) => {
-	
-	const categoryChange = async (val: string) => {
-		'use server'
-		console.log(val)
-	}
-
-	const query = searchParams?.query
+	const query = searchParams?.query || ''
+	const category = searchParams?.category || null
 
 	let content
+	let modifiedCategory
 
-	if (!query) {
-		const notes = await getAllNotes()
-		content =
-			notes.length === 0 ? (
-				<NoNotes />
-			) : (
-				<>
-					<Categories categoryChange={categoryChange} />
-					<Notes notes={notes} />
-				</>
-			)
+	if (category !== null) {
+		modifiedCategory = category.toUpperCase()
 	}
 
-	if (query) {
-		const filteredNotes = await getFilteredNotes(query)
+	if (!query || !category) {
+		const notes = await getAllNotes()
+		content = notes.length === 0 ? <NoNotes /> : <Notes notes={notes} />
+	}
+
+	if (query || modifiedCategory) {
+		const filteredNotes = await getFilteredNotes(query, modifiedCategory as Category)
 		content =
 			filteredNotes.length === 0 ? (
 				<div className='mt-24 text-2xl'>There is no notes you are searching. Try another phase or create new one.</div>
 			) : (
-				<>
-					<Categories categoryChange={categoryChange} />
-					<Notes notes={filteredNotes} />
-				</>
+				<Notes notes={filteredNotes} />
 			)
 	}
 
@@ -52,6 +42,7 @@ const Home = async ({
 			<h2 className='pb-1 my-20 text-5xl border-b-2 border-yellow-300'>All notes</h2>
 
 			<SearchNotes />
+			<Categories />
 
 			{content}
 		</div>
