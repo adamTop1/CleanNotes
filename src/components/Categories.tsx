@@ -3,11 +3,15 @@
 import { useSearchParams, usePathname, useRouter } from 'next/navigation'
 import { Badge } from './ui/badge'
 import React from 'react'
+import { twMerge } from 'tailwind-merge'
+import cn from 'clsx'
 
 const Categories = () => {
 	const searchParams = useSearchParams()
 	const router = useRouter()
 	const pathname = usePathname()
+
+	const categories = ['All', 'Personal', 'Work', 'Shopping', 'Other']
 
 	const handleClick = (category: string) => {
 		const params = new URLSearchParams(searchParams)
@@ -21,16 +25,28 @@ const Categories = () => {
 		router.push(`${pathname}?${params.toString()}`)
 	}
 
-	const Category = ['All', 'Personal', 'Work', 'Shopping', 'Other']
+	const isActive = searchParams.get('category')
 
 	return (
 		<div className='flex my-5'>
-			{Category.map((category, index) => {
+			{categories.map((category, index) => {
+				let isActive = false
+
+				if (searchParams.get('category')?.toLowerCase() === category.toLowerCase()) {
+					isActive = true
+				} else if (category === 'All' && !searchParams.get('category')) {
+					isActive = true
+				} else {
+					isActive = false
+				}
+
 				return (
 					<button key={index} onClick={() => handleClick(category)}>
 						<Badge
 							variant='outline'
-							className='px-3 py-2 m-2 text-white duration-300 hover:bg-yellow-300 hover:bg-opacity-30'>
+							className={cn('px-3 py-2 m-2 text-white duration-300 hover:bg-yellow-300 hover:bg-opacity-30', {
+								'bg-yellow-300  bg-opacity-50': isActive,
+							})}>
 							{category}
 						</Badge>
 					</button>
