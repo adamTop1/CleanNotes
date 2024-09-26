@@ -1,5 +1,7 @@
 'use client'
 
+export const dynamic = 'force-dynamic'
+
 import { editNoteAction, makeFavoriteAction, moveToTrashAction } from '@/actions/notes'
 import React, { useState } from 'react'
 import { FaEdit, FaHeart } from 'react-icons/fa'
