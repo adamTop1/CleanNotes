@@ -43,7 +43,7 @@ const Notes = ({
 								<p className='text-sm'>Date: {formattedDate}</p>
 								<div className='flex items-center justify-between mt-5 text-xl text-zinc-400'>
 									<OnSubmitButtons noteId={note.id} noteFav={note.isFavorite} title={note.title} description={note.description} />
-									<SlArrowRight className='mx-1 text-3xl text-white duration-150 cursor-pointer hover:scale-75 ' />
+									<Link href={`/notes/${note.id}`}><SlArrowRight className='mx-1 text-3xl text-white duration-150 cursor-pointer hover:scale-75 ' /></Link>
 								</div>
 							</div>
 						</CardFooter>

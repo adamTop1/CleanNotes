@@ -41,6 +41,15 @@ export const getAllNotes = async () => {
 	return notes
 }
 
+export const getNoteById = async (noteId: string) => {
+	const note = await prisma.note.findUnique({
+		where: {
+			id: noteId,
+		},
+	})
+	return note
+}
+
 export const getAllTrashNotes = async () => {
 	const notes = await prisma.note.findMany({
 		where: {
