@@ -16,11 +16,11 @@ const FavoriteNotes = ({
 		userId: string
 	}[]
 }) => {
-	const notes = favNotes.filter(note => note.inTrash === false)
+	
 
 	return (
 		<div className='grid grid-cols-4 gap-4 mx-20 my-10'>
-			{notes.map((note, index) => {
+			{favNotes.map((note, index) => {
 				const formattedDate = note.createdAt.toLocaleDateString('en-US', {
 					year: 'numeric',
 					month: 'long',

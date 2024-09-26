@@ -1,9 +1,7 @@
 'use client'
 
-export const dynamic = 'force-dynamic'
-
 import { editNoteAction, makeFavoriteAction, moveToTrashAction } from '@/actions/notes'
-import React, { useState } from 'react'
+import React, { useRef } from 'react'
 import { FaEdit, FaHeart } from 'react-icons/fa'
 import { MdDelete } from 'react-icons/md'
 import {
@@ -42,18 +40,21 @@ const OnSubmitButtons = ({
 	title: string
 	description: string
 }) => {
-	const [isFavourite, setIsFavourite] = useState(noteFav)
-	const [editedTitle, setEditedTitle] = useState(title)
-	const [editedDescription, setEditedDescription] = useState(description)
+	const editedTitle = useRef<HTMLInputElement >(null)
+	const editedDescription = useRef<HTMLTextAreaElement>(null)
+	
 
 	const handleFavNote = async () => {
-		await setIsFavourite(!isFavourite)
-		const favNote = await makeFavoriteAction(noteId, !isFavourite)
+		const favNote = await makeFavoriteAction(noteId, !noteFav)
 		return favNote
 	}
 
 	const handleEditNote = async () => {
-		await editNoteAction(noteId, editedTitle, editedDescription)
+		if (editedTitle.current && editedDescription.current) {
+			await editNoteAction(noteId, editedTitle.current.value, editedDescription.current.value);
+		  }
+		  
+	  
 	}
 
 	const handleMoveToTrash = async () => {
@@ -78,9 +79,9 @@ const OnSubmitButtons = ({
 							</Label>
 							<Input
 								id='title'
-								value={editedTitle}
 								className='col-span-3 bg-zinc-900'
-								onChange={e => setEditedTitle(e.target.value)}
+								ref={editedTitle}
+								defaultValue={title}
 							/>
 						</div>
 						<div className='grid items-center grid-cols-4 gap-4'>
@@ -89,9 +90,9 @@ const OnSubmitButtons = ({
 							</Label>
 							<Textarea
 								id='description'
-								value={editedDescription}
-								onChange={e => setEditedDescription(e.target.value)}
 								className='col-span-3 bg-zinc-900'
+								ref={editedDescription}
+								defaultValue={description}
 							/>
 						</div>
 					</div>
@@ -100,15 +101,17 @@ const OnSubmitButtons = ({
 					</DialogFooter>
 				</DialogContent>
 			</Dialog>
+
 			<button onClick={handleFavNote}>
 				<FaHeart
 					className={
-						isFavourite
+						noteFav
 							? 'text-red-500 mx-3 opacity-50 hover:opacity-100 duration-200  hover:scale-110'
 							: 'mx-3 duration-200 hover:text-red-500 hover:scale-110 '
 					}
 				/>
 			</button>
+			
 			<AlertDialog>
 				<AlertDialogTrigger asChild>
 					<MdDelete className='mx-1 text-3xl duration-150 cursor-pointer hover:text-white hover:scale-110 ' />

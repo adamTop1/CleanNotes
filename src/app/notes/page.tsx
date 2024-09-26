@@ -1,9 +1,12 @@
+export const dynamic = 'force-dynamic'
+
 import Categories from '@/components/Categories'
 import NoNotes from '@/components/EmptyNotes'
 import Notes from './Notes'
-import { Category, getAllNotes, getFilteredNotes } from '@/db/notes'
+import { Category, getAllNotes } from '@/db/notes'
 import SearchNotes from '@/components/SearchNotes'
 import { notFound } from 'next/navigation'
+import { getFilteredNotesAction } from '@/actions/notes'
 
 const Home = async ({
 	searchParams,
@@ -32,7 +35,7 @@ const Home = async ({
 	}
 
 	if (query || modifiedCategory) {
-		const filteredNotes = await getFilteredNotes(query, modifiedCategory as Category)
+		const filteredNotes = await getFilteredNotesAction(query, modifiedCategory as Category)
 
 		if (filteredNotes === null ) return notFound()
 
@@ -43,6 +46,7 @@ const Home = async ({
 				<Notes notes={filteredNotes} />
 			)
 	}
+
 
 	return (
 		<div className='flex flex-col items-center min-h-screen '>
@@ -57,3 +61,4 @@ const Home = async ({
 }
 
 export default Home
+

@@ -2,13 +2,16 @@ import React from 'react'
 import EmptyFavoriteNotes from './EmptyFavoriteNotes'
 import FavoriteNotes from './FavoriteNotes'
 import { getAllNotes } from '@/db/notes'
+import { notFound } from 'next/navigation'
 
 
 const DeletedNotesPage = async () => {
+	
 	const notes = await getAllNotes()
 
+	if (notes === null ) return notFound()
+
 	const favNotes = notes.filter((note) => note.isFavorite === true).filter((note) => note.inTrash === false)
-	console.log(favNotes);
 
 	return (
 		<div className='flex flex-col items-center justify-start w-full min-h-screen'>
