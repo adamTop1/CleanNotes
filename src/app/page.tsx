@@ -19,7 +19,7 @@ const Home = async () => {
 						<Button className='text-black bg-yellow-400 border border-black hover:bg-yellow-400/85'>Get Started</Button>
 					</Link>
 					<Link href='/login'>
-						<Button className='' variant='secondary'>
+						<Button variant='secondary'>
 							Login
 						</Button>
 					</Link>

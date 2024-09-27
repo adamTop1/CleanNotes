@@ -8,8 +8,6 @@ const Note = async ({ params }: { params: { noteId: string } }) => {
 
 	if (note === null) return notFound()
 
-	console.log(note)
-
 	const date = new Date(note.createdAt).toLocaleDateString()
 
 	return (
