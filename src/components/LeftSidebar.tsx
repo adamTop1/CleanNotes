@@ -1,5 +1,6 @@
 'use client'
 
+import { signOut } from '@/auth'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -21,8 +22,8 @@ const LeftSidebar = () => {
 			</h1>
 			<nav className='mt-32'>
 				<ul className='flex flex-col items-center w-full gap-4 text-xl '>
-					{links.map((link, index) => { 
-                        const isActive = pathname === link.href
+					{links.map((link, index) => {
+						const isActive = pathname === link.href
 						return (
 							<li key={index}>
 								<Link
@@ -37,9 +38,15 @@ const LeftSidebar = () => {
 					})}
 				</ul>
 			</nav>
-			<Link href='/login' className='mx-auto my-32'>
-				Login
-			</Link>
+			<form
+				action={async () => {
+					'use server'
+					await signOut()
+				}}>
+				<button className='flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3'>
+					<div className='hidden md:block'>Sign Out</div>
+				</button>
+			</form>
 		</div>
 	)
 }

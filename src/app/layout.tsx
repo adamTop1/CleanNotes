@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { Space_Grotesk } from 'next/font/google'
-import LeftSidebar from '@/components/LeftSidebar'
+import AuthProvider from '@/context/AuthProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,7 +25,7 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body className={`${spaceGrotesk.className} bg-zinc-950 text-white`}>
-				{children}
+				<AuthProvider>{children}</AuthProvider>
 			</body>
 		</html>
 	)
