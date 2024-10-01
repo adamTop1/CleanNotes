@@ -2,11 +2,8 @@ import { BackgroundBeams } from '@/components/ui/background-beams'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import Link from 'next/link'
-import { auth } from '@/auth'
-import LoginForm from '@/components/LoginForm'
 
 const Home = async () => {
-	const session = await auth()
 
 	return (
 		<div className='z-10 grid w-full h-screen grid-cols-2 col'>
@@ -28,10 +25,9 @@ const Home = async () => {
 						<BackgroundBeams />
 					</div>
 				</div>
-				<p>{session ? session.user?.name : null}</p>
 			</div>
 			<div className='flex items-center justify-center'>
-				<Image src='/ideas-flow.svg' alt='notes' width={350} height={400} />
+				<Image src='/ideas-flow.svg' alt='notes' width={400} height={400} />
 			</div>
 		</div>
 	)

@@ -1,9 +1,9 @@
 import { prisma } from './db'
 
-export const createUser = async ({ name, password }: { name: string; password: string }) => {
+export const createUser = async ({ email, password }: { email: string; password: string }) => {
 	const user = await prisma.user.create({
 		data: {
-			name: name,
+			email: email,
 			password: password,
 		},
 	})
