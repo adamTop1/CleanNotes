@@ -10,10 +10,12 @@ export const {handlers, auth, signIn, signOut } = NextAuth({
   providers: [
     Credentials({
       async authorize(credentials) {
+        const { email, password } = credentials;
+
         const parsedCredentials = z
           .object({ email: z.string().email(), password: z.string().min(6) })
-          .safeParse(credentials)
- 
+          .safeParse({ email, password });
+        
         if (parsedCredentials.success) {
           const { email, password } = parsedCredentials.data;
           const user = await getUserByEmail(email);

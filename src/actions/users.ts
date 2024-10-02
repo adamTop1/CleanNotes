@@ -16,17 +16,19 @@ export async function signUpAction(prevState: string | undefined, formData: Form
 				email,
 				password: hashedPassword
 			})
-			// await signIn('credentials', formData)
-			await redirect('/')
+			await signIn('credentials', {email, password})
 		} catch (error) {
 			throw error
 		}
 
 }
 
-export async function authenticate(prevState: string | undefined, formData: FormData) {
+export async function signInAction(prevState: string | undefined, formData: FormData) {
 	try {
-		await signIn('credentials', formData)
+		const email = formData.get('email') as string
+		const password = formData.get('password') as string
+		await signIn('credentials', {email, password})
+		await redirect('/')
 	} catch (error) {
 		if (error instanceof AuthError) {
 			switch (error.type) {

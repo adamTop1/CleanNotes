@@ -1,6 +1,5 @@
 'use client'
 
-import { ArrowRightIcon } from 'lucide-react'
 import { Button } from './ui/button'
 import { useFormState, useFormStatus } from 'react-dom';
 

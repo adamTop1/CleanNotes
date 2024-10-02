@@ -2,17 +2,17 @@ import type { NextAuthConfig } from 'next-auth';
 
 export const authConfig = {
   pages: {
-    signIn: '/login',
+    signIn: '/signin',
   },
   callbacks: {
     authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user;
-      const isOnDashboard = nextUrl.pathname.startsWith('/dashboard');
-      if (isOnDashboard) {
+      const isOnNotes = nextUrl.pathname.startsWith('/notes');
+      if (isOnNotes) {
         if (isLoggedIn) return true;
-        return false; // Redirect unauthenticated users to login page
+        return false
       } else if (isLoggedIn) {
-        return Response.redirect(new URL('/dashboard', nextUrl));
+        return Response.redirect(new URL('/notes', nextUrl));
       }
       return true;
     },
