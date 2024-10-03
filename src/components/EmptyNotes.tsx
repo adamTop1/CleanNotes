@@ -15,7 +15,7 @@ const NoNotes = () => {
 					Create one!
 				</button>
 			</p>
-			<Image src='/add-note.svg' width={300} height={300} alt='svg image ilustrating adding notes' />
+			<Image src='/ideas-flow.svg' width={300} height={300} alt='svg image ilustrating adding notes' />
 		</div>
 	)
 }
