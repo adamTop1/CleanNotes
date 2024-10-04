@@ -2,11 +2,8 @@ import { BackgroundBeams } from '@/components/ui/background-beams'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import Link from 'next/link'
-import { auth } from '@/auth'
 
 const Home = async () => {
-	const session = await auth()
-	console.log(session);
 
 	return (
 		<div className='z-10 grid w-full h-screen grid-cols-2 col'>

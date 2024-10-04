@@ -4,6 +4,15 @@ import { createNote, makeFavorite, moveToTrash, deleteNote, restoreNote, getFilt
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 import { Category } from '@/db/notes'
+import { auth } from '@/auth'
+
+export const getSessionUserId = async () => {
+	const session = await auth()
+	if (!session) {
+		throw new Error('No session found')
+	}
+	return session?.user?.id as string
+}
 
 export const createNoteAction = async ({
 	title,
@@ -19,11 +28,12 @@ export const createNoteAction = async ({
 	if (!title || !description) {
 		throw new Error('Title and description are required')
 	}
+	const userId = await getSessionUserId()
 	const note = await createNote({
 		title,
 		description,
 		isFavorite,
-		userId: '855d3478-a164-4b3c-992f-8827b43ddce2',
+		userId: userId,
 		category,
 	})
 
@@ -66,7 +76,7 @@ export const getFilteredNotesAction = async (search: string, category: Category)
 }
 
 export const editNoteAction = async (noteId: string, title: string, description: string) => {
-	const note = await editNote({noteId, title, description})
+	const note = await editNote({ noteId, title, description })
 	revalidatePath('/')
 	revalidatePath('/notes/favorites')
 	return note

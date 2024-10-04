@@ -14,20 +14,20 @@ datasource db {
 }
 
 model Note {
-  id        String   @id @default(uuid())
-  title     String
-  description   String
-  isFavorite Boolean @default(false)
-  inTrash   Boolean @default(false)
-  createdAt DateTime @default(now())
-  user     User     @relation(fields: [userId], references: [id])
-  userId   String
-  category Category @default(PERSONAL)
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  isFavorite  Boolean  @default(false)
+  inTrash     Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id])
+  userId      String
+  category    Category @default(PERSONAL)
 }
 
 model User {
-  id       String   @id @default(uuid())
-  email    String   @unique 
+  id       String    @id @default(uuid())
+  email    String    @unique
   password String
   notes    Note[]
 }
@@ -38,3 +38,4 @@ enum Category {
   SHOPPING
   OTHER
 }
+

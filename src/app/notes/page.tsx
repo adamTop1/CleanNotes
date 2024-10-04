@@ -16,6 +16,7 @@ const Home = async ({
 		category?: string
 	}
 }) => {
+	
 	const query = searchParams?.query || ''
 	const category = searchParams?.category || null
 
@@ -37,7 +38,7 @@ const Home = async ({
 	if (query || modifiedCategory) {
 		const filteredNotes = await getFilteredNotesAction(query, modifiedCategory as Category)
 
-		if (filteredNotes === null ) return notFound()
+		if (filteredNotes === null) return notFound()
 
 		content =
 			filteredNotes.length === 0 ? (
@@ -47,11 +48,10 @@ const Home = async ({
 			)
 	}
 
-
 	return (
 		<div className='flex flex-col items-center min-h-screen '>
 			<h2 className='pb-1 my-20 text-5xl border-b-2 border-yellow-300'>All notes</h2>
-			
+
 			<SearchNotes />
 			<Categories />
 
@@ -61,4 +61,3 @@ const Home = async ({
 }
 
 export default Home
-
