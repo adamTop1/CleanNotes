@@ -10,8 +10,8 @@ export default function LoginForm({ actionFn, signText }: { actionFn: any; signT
 
 	return (
 		<form  className='space-y-3 ' action={formAction}>
-			<div className='flex-1 px-6 pt-8 pb-4 rounded-lg'>
-				<h1 className={`mb-3 text-2xl`}>Please {signText} to continue.</h1>
+			<div className='flex-1 px-6 pt-8 pb-4 rounded-lg max-[400px]:p-5' >
+				<h1 className={`mb-3 text-2xl max-[400px]:text-xl`}>Please {signText} to continue.</h1>
 				<div className='w-full'>
 					<div>
 						<label className='block mt-5 mb-3 text-xs font-medium text-gray-400' htmlFor='email'>
