@@ -6,10 +6,10 @@ import Link from 'next/link'
 const Home = async () => {
 
 	return (
-		<div className='z-10 grid w-full h-screen grid-cols-2 col'>
+		<div className='z-10 grid w-full h-screen grid-cols-2 col max-xl:mx-10 max-md:grid-cols-1'>
 			<div className='flex flex-col items-center justify-center gap-7'>
-				<h2 className='text-5xl font-bold'>CleanNotes</h2>
-				<p className='text-xl text-gray-300 max-w-[500px]'>
+				<h2 className='text-5xl font-bold max-md:text-4xl'>CleanNotes</h2>
+				<p className='text-xl text-gray-300 max-w-[500px]  max-xl:text-base max-md:p-5'>
 					Collect all your thoughts, tasks, and ideas in one place! Whether it is a to-do list, a creative idea, or a
 					reminder, keep everything organized and easily accessible. No more scattered notes—have it all at your
 					fingertips.
@@ -26,8 +26,8 @@ const Home = async () => {
 					</div>
 				</div>
 			</div>
-			<div className='flex items-center justify-center'>
-				<Image src='/ideas-flow.svg' alt='notes' width={400} height={400} />
+			<div className='flex items-center justify-center max-md:hidden'>
+				<Image src='/ideas-flow.svg' alt='notes' width={400} height={400} className='max-xl:w-[330px] max-xl:h-[330px]' />
 			</div>
 		</div>
 	)
