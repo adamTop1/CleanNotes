@@ -16,7 +16,7 @@ const NavLinks = () => {
 
 	return (
 		<nav className='mt-32'>
-			<ul className='flex flex-col items-center w-full gap-4 text-xl '>
+			<ul className='flex flex-col items-center w-full gap-4 text-lg xl:text-xl '>
 				{links.map((link, index) => {
 					const isActive = pathname === link.href
 					return (

@@ -24,7 +24,7 @@ const Notes = ({
 	
 
 	return (
-		<div className='grid grid-cols-4 gap-4 mx-20 my-10'>
+		<div className='grid grid-cols-4 gap-4 mx-20 my-10 max-md:flex max-md:flex-col'>
 			{notes.map((note) => {
 				const formattedDate = note.createdAt.toLocaleDateString('en-US', {
 					year: 'numeric',

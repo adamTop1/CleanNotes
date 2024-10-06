@@ -8,7 +8,7 @@ export default function RootLayout({
 	return (
 		<div className='relative flex'>
 			<LeftSidebar />
-			<div className='w-10/12 h-full '>{children}</div>
+			<div className='w-full h-full lg:w-10/12 '>{children}</div>
 		</div>
 	)
 }

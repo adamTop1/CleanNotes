@@ -25,7 +25,7 @@ const Categories = () => {
 	}
 
 	return (
-		<div className='flex my-5'>
+		<div className='flex mx-2 my-10 lg:my-5'>
 			{categories.map((category, index) => {
 				let isActive = false
 
@@ -41,7 +41,7 @@ const Categories = () => {
 					<button key={index} onClick={() => handleClick(category)}>
 						<Badge
 							variant='outline'
-							className={cn('px-3 py-2 m-2 text-white duration-300 hover:bg-yellow-300 hover:bg-opacity-30', {
+							className={cn('px-3 py-2 m-1 md:m-2 text-white duration-300 hover:bg-yellow-300 hover:bg-opacity-30', {
 								'bg-yellow-300  bg-opacity-50': isActive,
 							})}>
 							{category}

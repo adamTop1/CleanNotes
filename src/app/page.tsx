@@ -6,7 +6,7 @@ import Link from 'next/link'
 const Home = async () => {
 
 	return (
-		<div className='z-10 grid w-full h-screen grid-cols-2 col max-xl:mx-10 max-md:grid-cols-1'>
+		<div className='z-10 grid h-screen grid-cols-2 col max-xl:mx-10 max-md:grid-cols-1'>
 			<div className='flex flex-col items-center justify-center gap-7'>
 				<h2 className='text-5xl font-bold max-md:text-4xl'>CleanNotes</h2>
 				<p className='text-xl text-gray-300 max-w-[500px]  max-xl:text-base max-md:p-5'>

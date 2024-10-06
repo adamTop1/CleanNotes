@@ -42,14 +42,14 @@ const Home = async ({
 
 		content =
 			filteredNotes.length === 0 ? (
-				<div className='mt-24 text-2xl'>There is no notes you are searching. Try another phase or create new one.</div>
+				<div className='mx-8 text-xl mt-14 md:mt-24 md:text-2xl'>There is no notes you are searching. Try another phase or create new one.</div>
 			) : (
 				<Notes notes={filteredNotes} />
 			)
 	}
 
 	return (
-		<div className='flex flex-col items-center min-h-screen '>
+		<div className='flex flex-col items-center min-h-screen lg:mx-5'>
 			<h2 className='pb-1 my-20 text-5xl border-b-2 border-yellow-300'>All notes</h2>
 
 			<SearchNotes />

@@ -5,8 +5,8 @@ import NavLinks from './NavLinks'
 
 const LeftSidebar = () => {
 	return (
-		<div className='sticky top-0 flex flex-col items-center justify-between w-2/12 h-screen border-r-2 border-yellow-300 '>
-			<h1 className='mx-auto mt-10 text-4xl font-bold'>
+		<div className='sticky top-0 flex flex-col items-center justify-between w-2/12 h-screen border-r-2 border-yellow-300 max-lg:hidden '>
+			<h1 className='mx-auto mt-10 font-bold lg:text-2xl xl:text-4xl'>
 				<Link href='/'>CleanNotes</Link>
 			</h1>
 			<NavLinks />
