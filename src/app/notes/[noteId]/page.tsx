@@ -11,7 +11,7 @@ const Note = async ({ params }: { params: { noteId: string } }) => {
 	const date = new Date(note.createdAt).toLocaleDateString()
 
 	return (
-		<div className='flex flex-col items-start min-h-screen mx-40 '>
+		<div className='flex flex-col items-start min-h-screen mx-10 lg:mx-40 '>
 			<h2 className='pb-1 mx-auto my-20 text-5xl border-b-2 border-yellow-300'>Note</h2>
 			<div className='flex flex-col break-words gap-7'>
 				<div >

@@ -7,6 +7,9 @@ import { Category, getAllNotes } from '@/db/notes'
 import SearchNotes from '@/components/SearchNotes'
 import { notFound } from 'next/navigation'
 import { getFilteredNotesAction } from '@/actions/notes'
+import { Card } from '@/components/ui/card'
+import Link from 'next/link'
+import { IoMdAdd } from 'react-icons/io'
 
 const Home = async ({
 	searchParams,
@@ -42,7 +45,16 @@ const Home = async ({
 
 		content =
 			filteredNotes.length === 0 ? (
+				<>
 				<div className='mx-8 text-xl mt-14 md:mt-24 md:text-2xl'>There is no notes you are searching. Try another phase or create new one.</div>
+				<Card className='flex items-center justify-center text-5xl text-white bg-zinc-800 border-zinc-700 lg:min-w-[250px] lg:min-h-[150px] mt-8 '>
+				<Link href='/notes/create'>
+					<div className='p-10 duration-300 opacity-75 hover:rotate-180 hover:text-yellow-300'>
+						<IoMdAdd />
+					</div>
+				</Link>
+			</Card>
+			</>
 			) : (
 				<Notes notes={filteredNotes} />
 			)
