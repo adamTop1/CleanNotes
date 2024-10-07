@@ -67,7 +67,7 @@ const OnSubmitButtons = ({
 				<DialogTrigger>
 					<FaEdit className='mx-3 duration-200 hover:text-white hover:scale-110' />
 				</DialogTrigger>
-				<DialogContent className='sm:max-w-[425px] bg-zinc-800'>
+				<DialogContent className='sm:max-w-[425px] bg-zinc-800 max-sm:w-10/12 max-sm:rounded'>
 					<DialogHeader>
 						<DialogTitle>Edit profile</DialogTitle>
 						<DialogDescription>Make changes to your profile here. Click save when you are done.</DialogDescription>
@@ -116,7 +116,7 @@ const OnSubmitButtons = ({
 				<AlertDialogTrigger asChild>
 					<MdDelete className='mx-1 text-3xl duration-150 cursor-pointer hover:text-white hover:scale-110 ' />
 				</AlertDialogTrigger>
-				<AlertDialogContent className='bg-zinc-800'>
+				<AlertDialogContent className='bg-zinc-800 max-sm:w-3/4 max-sm:rounded'>
 					<AlertDialogHeader>
 						<AlertDialogTitle>Are you sure?</AlertDialogTitle>
 						<AlertDialogDescription>
