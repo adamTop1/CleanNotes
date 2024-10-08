@@ -19,6 +19,7 @@ const LeftSidebar = () => {
 					<div className='hidden md:block'>Sign Out</div>
 				</button>
 			</form>
+			
 		</div>
 	)
 }

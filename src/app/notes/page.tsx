@@ -19,10 +19,9 @@ const Home = async ({
 		category?: string
 	}
 }) => {
-	
 	const query = searchParams?.query || ''
 	const category = searchParams?.category || null
-
+	
 	let content
 	let modifiedCategory
 
@@ -46,27 +45,28 @@ const Home = async ({
 		content =
 			filteredNotes.length === 0 ? (
 				<>
-				<div className='mx-8 text-xl mt-14 md:mt-24 md:text-2xl'>There is no notes you are searching. Try another phase or create new one.</div>
-				<Card className='flex items-center justify-center text-5xl text-white bg-zinc-800 border-zinc-700 lg:min-w-[250px] lg:min-h-[150px] mt-8 '>
-				<Link href='/notes/create'>
-					<div className='p-10 duration-300 opacity-75 hover:rotate-180 hover:text-yellow-300'>
-						<IoMdAdd />
+					<div className='mx-8 text-xl mt-14 md:mt-24 md:text-2xl'>
+						There is no notes you are searching. Try another phase or create new one.
 					</div>
-				</Link>
-			</Card>
-			</>
+					<Card className='flex items-center justify-center text-5xl text-white bg-zinc-800 border-zinc-700 lg:min-w-[250px] lg:min-h-[150px] mt-8 '>
+						<Link href='/notes/create'>
+							<div className='p-10 duration-300 opacity-75 hover:rotate-180 hover:text-yellow-300'>
+								<IoMdAdd />
+							</div>
+						</Link>
+					</Card>
+				</>
 			) : (
 				<Notes notes={filteredNotes} />
 			)
 	}
 
 	return (
-		<div className='flex flex-col items-center min-h-screen lg:mx-5'>
+		<div className='relative flex flex-col items-center min-h-screen lg:mx-5'>
 			<h2 className='pb-1 my-20 text-5xl border-b-2 border-yellow-300'>All notes</h2>
 
 			<SearchNotes />
 			<Categories />
-
 			{content}
 		</div>
 	)
