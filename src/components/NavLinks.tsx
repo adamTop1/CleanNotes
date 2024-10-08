@@ -5,20 +5,14 @@ import Link from 'next/link'
 import React from 'react'
 import { usePathname } from 'next/navigation'
 
-const NavLinks = ({ setIsOpen }: any) => {
-	const pathname = usePathname()
+const NavLinks = () => {
+    const pathname = usePathname()
 
 	const links = [
 		{ href: '/notes', text: 'All notes' },
 		{ href: '/notes/favorites', text: 'Favorite notes' },
 		{ href: '/notes/deleted', text: 'Deleted notes' },
 	]
-
-	const closeNav = () => {
-		setTimeout(() => {
-			setIsOpen(false)
-		}, 700)
-	}
 
 	return (
 		<nav className='mt-32'>
@@ -31,9 +25,7 @@ const NavLinks = ({ setIsOpen }: any) => {
 								href={link.href}
 								className={cn('duration-300 border-b border-gray-500 hover:border-yellow-300', {
 									'border-yellow-300': isActive,
-								})
-								} 
-								onClick={closeNav}>
+								})}>
 								{link.text}
 							</Link>
 						</li>
