@@ -1,6 +1,5 @@
 import { signOut } from '@/auth'
 import HamburgerIcon from './HamburgerIcon'
-import MobileNav from './MobileNav'
 
 
 const Hamburger = async () => {

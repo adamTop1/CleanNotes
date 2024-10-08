@@ -4,7 +4,6 @@ import { cn } from '@/lib/utils'
 import { useState } from 'react'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import Link from 'next/link'
-import NavLinks from './NavLinks'
 import { usePathname } from 'next/navigation'
 
 const HamburgerIcon = ({ signOutFn }: any) => {
