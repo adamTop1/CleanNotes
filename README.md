@@ -1,7 +1,13 @@
 <h1 align="center" id="title">CleanNotes</h1>
 
 <p id="description" align="center" >App for creating notes with a clean interface.</p>  
-  
+
+<h2>Test account</h2>
+| E-mail              | Password       |
+| ------------------- | -------------- | 
+| test@test.pl        | testtest       | 
+
+
 <h2>Technologies Used</h2>
 <hr><ul>
 <li>React</li>
@@ -33,7 +39,3 @@
 </ul><ul>
 <li>Logging with NextAuth V5</li>
 </ul>
-
-| E-mail              | Password       |
-| ------------------- | -------------- | 
-| test@test.pl        | testtest       | 
