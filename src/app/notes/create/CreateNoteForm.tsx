@@ -19,6 +19,7 @@ export const formSchema = z.object({
 })
 
 export default function CreateNoteForm() {
+	
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
@@ -28,7 +29,7 @@ export default function CreateNoteForm() {
 			category: 'PERSONAL',
 		},
 	})
-
+	
 	async function onSubmit(data: z.infer<typeof formSchema>) {
 		await OnSubmitAction(data)
 	}
@@ -95,7 +96,7 @@ export default function CreateNoteForm() {
 						<FormItem>
 							<FormLabel>Category</FormLabel>
 							<FormControl>
-								<Select onValueChange={field.onChange} defaultValue={field.value} > 
+								<Select onValueChange={field.onChange} defaultValue={field.value}>
 									<SelectTrigger className='w-[180px] bg-zinc-800 text-white'>
 										<SelectValue placeholder='Category ' />
 									</SelectTrigger>
@@ -110,7 +111,9 @@ export default function CreateNoteForm() {
 						</FormItem>
 					)}
 				/>
-				<Button type='submit'>Submit</Button>
+				<Button type='submit' disabled={form.formState.isSubmitting}>
+					{form.formState.isSubmitting ? 'Submitting...' : 'Submit'}
+				</Button>
 			</form>
 		</Form>
 	)
