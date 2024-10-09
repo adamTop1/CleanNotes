@@ -29,7 +29,7 @@ const HamburgerIcon = ({ signOutFn }: any) => {
 	return (
 		<>
 			<div className='fixed top-0 right-0 z-20' onClick={openNavFn}>
-				<RxHamburgerMenu className='w-10 h-10 p-2 mt-5 mr-5 text-yellow-300 cursor-pointer' />
+				<RxHamburgerMenu className='w-12 h-12 p-2 mt-5 mr-5 text-yellow-300 bg-black border border-yellow-300 rounded-full cursor-pointer ' />
 			</div>
 			<div className={cn('fixed top-0 left-0 z-10 hidden w-full h-full bg-black', { block: isOpen })}>
 				<div className='flex flex-col items-center justify-between'>

@@ -1,41 +1,25 @@
-<h1 align="center" id="title">CleanNotes</h1>
+# <h1 align='center'>💻 CleanNotes 💻</h1>
 
-<p id="description" align="center" >App for creating notes with a clean interface.</p>  
+### 📚 Description 📚
+App for creating notes with a clean interface.
 
-<h2>Test account</h2>
-| E-mail              | Password       |
-| ------------------- | -------------- | 
-| test@test.pl        | testtest       | 
+### 🚀 Features 🚀
+- add notes
+- delete notes and restore it from trash
+- edit notes
+- make notes favorite
+- search notes by input or category
+- creating accounts
+- logging with NextAuth V5
+ 
 
 
-<h2>Technologies Used</h2>
-<hr><ul>
-<li>React</li>
-</ul><ul>
-<li>Next.js</li>
-</ul><ul>
-<li>TypeScript</li>
-</ul><ul>
-<li>Shadcn UI</li>
-</ul><ul>
-<li>Prisma</li>
-</ul><ul>
-<li>NeonDb</li>
-</ul><ul>
-<li>Zod</li>
-</ul><ul>
-<li>Next Auth v5</li>
-</ul><h2>Features</h2>
-<hr><ul>
-<li>Adding notes</li>
-</ul><ul>
-<li>Deleting notes</li>
-</ul><ul>
-<li>Editing notes</li>
-</ul><ul>
-<li>Making notes favorite</li>
-</ul><ul>
-<li>Creating accounts</li>
-</ul><ul>
-<li>Logging with NextAuth V5</li>
-</ul>
+### 🤖 Technologies 🤖
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) 
+ ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) 
+ ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) 
+ ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) 
+ ![Next.js](https://img.shields.io/badge/next%20js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+ ![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)
+ ![Zod](https://img.shields.io/badge/Zod-000000?style=for-the-badge&logo=zod&logoColor=3068B7)
+ ![NextAuth v5](https://next-auth.js.org/img/logo/logo-sm.png)
