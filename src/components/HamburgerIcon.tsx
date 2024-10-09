@@ -23,7 +23,7 @@ const HamburgerIcon = ({ signOutFn }: any) => {
 	const closeNav = () => {
 		setTimeout(() => {
 			setIsOpen(false)
-		}, 700)
+		}, 1200)
 	}
 
 	return (
