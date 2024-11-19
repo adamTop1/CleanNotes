@@ -2,6 +2,11 @@
 
 ### 📚 Description 📚
 App for creating notes with a clean interface.
+<br />
+
+
+
+<br />
 
 ### 🚀 Features 🚀
 - add notes
@@ -11,7 +16,8 @@ App for creating notes with a clean interface.
 - search notes by input or category
 - creating accounts
 - logging with NextAuth V5
- 
+
+ <br />
 
 
 ### 🤖 Technologies 🤖
@@ -22,4 +28,3 @@ App for creating notes with a clean interface.
  ![Next.js](https://img.shields.io/badge/next%20js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
  ![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)
  ![Zod](https://img.shields.io/badge/Zod-000000?style=for-the-badge&logo=zod&logoColor=3068B7)
- ![NextAuth v5](https://next-auth.js.org/img/logo/logo-sm.png)

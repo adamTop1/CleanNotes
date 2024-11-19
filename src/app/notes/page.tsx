@@ -10,6 +10,7 @@ import { getFilteredNotesAction } from '@/actions/notes'
 import { Card } from '@/components/ui/card'
 import Link from 'next/link'
 import { IoMdAdd } from 'react-icons/io'
+import { auth } from '@/auth'
 
 const Home = async ({
 	searchParams,
@@ -19,9 +20,10 @@ const Home = async ({
 		category?: string
 	}
 }) => {
+	const session = await auth()
 	const query = searchParams?.query || ''
 	const category = searchParams?.category || null
-	
+
 	let content
 	let modifiedCategory
 
@@ -30,7 +32,9 @@ const Home = async ({
 	}
 
 	if (!query || !category) {
-		const notes = await getAllNotes()
+		const notes = await getAllNotes({
+			userId: session?.user?.id as string,
+		})
 
 		if (notes === null) return notFound()
 

@@ -1,6 +1,5 @@
 'use client'
 
-import { Button } from './ui/button'
 import { useFormState, useFormStatus } from 'react-dom';
 
 export default function LoginForm({ actionFn, signText }: { actionFn: any; signText: string }) {

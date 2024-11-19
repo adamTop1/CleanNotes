@@ -32,10 +32,11 @@ export const createNote = async ({
 	return note
 }
 
-export const getAllNotes = async () => {
+export const getAllNotes = async ({userId}: {userId: string}) => {
 	const notes = await prisma.note.findMany({
 		where: {
 			inTrash: false,
+			userId: userId,
 		},
 	})
 	return notes
