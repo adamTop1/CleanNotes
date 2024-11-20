@@ -3,15 +3,18 @@ import EmptyFavoriteNotes from './EmptyFavoriteNotes'
 import FavoriteNotes from './FavoriteNotes'
 import { getAllNotes } from '@/db/notes'
 import { notFound } from 'next/navigation'
+import { auth } from '@/auth'
 
+const FavoriteNotesPage = async () => {
+	const session = await auth()
 
-const DeletedNotesPage = async () => {
-	
-	const notes = await getAllNotes()
+	const notes = await getAllNotes({
+		userId: session?.user?.id as string,
+	})
 
-	if (notes === null ) return notFound()
+	if (notes === null) return notFound()
 
-	const favNotes = notes.filter((note) => note.isFavorite === true).filter((note) => note.inTrash === false)
+	const favNotes = notes.filter(note => note.isFavorite === true).filter(note => note.inTrash === false)
 
 	return (
 		<div className='flex flex-col items-center justify-start w-full min-h-screen'>
@@ -21,4 +24,4 @@ const DeletedNotesPage = async () => {
 	)
 }
 
-export default DeletedNotesPage
+export default FavoriteNotesPage
