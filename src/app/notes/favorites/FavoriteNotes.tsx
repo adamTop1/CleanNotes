@@ -2,6 +2,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from '@/comp
 import React from 'react'
 import OnSubmitButtons from '../OnSubmitButtons'
 import { SlArrowRight } from 'react-icons/sl'
+import Link from 'next/link'
 
 const FavoriteNotes = ({
 	favNotes,
@@ -16,8 +17,6 @@ const FavoriteNotes = ({
 		userId: string
 	}[]
 }) => {
-	
-
 	return (
 		<div className='grid gap-4 mx-6 grid-cols-2 xl:mx-10 my-10 min-[1200px]:grid-cols-3 min-[1600px]:grid-cols-4 max-md:flex max-md:flex-col'>
 			{favNotes.map((note, index) => {
@@ -26,19 +25,27 @@ const FavoriteNotes = ({
 					month: 'long',
 					day: 'numeric',
 				})
-				const description = note.description.length > 100 ? note.description.substring(0, 100) + '...' : note.description
+				const description =
+					note.description.length > 100 ? note.description.substring(0, 100) + '...' : note.description
 				return (
-					<Card key={index} className='flex flex-col justify-between text-white bg-zinc-800 border-zinc-700 '>
+					<Card key={index} className='flex flex-col justify-between text-white bg-zinc-800 border-zinc-700 min-w-[300px] '>
 						<CardHeader>
 							<CardTitle>{note.title}</CardTitle>
-							<CardDescription className='break-words' >{description}</CardDescription>
+							<CardDescription className='break-words'>{description}</CardDescription>
 						</CardHeader>
 						<CardFooter>
 							<div className='flex flex-col justify-between w-full'>
 								<p className='text-sm'>Date: {formattedDate}</p>
 								<div className='flex items-center justify-between mt-5 text-xl text-zinc-400'>
-									<OnSubmitButtons noteId={note.id} noteFav={note.isFavorite} title={note.title} description={note.description} />
-									<SlArrowRight className='mx-1 text-3xl text-white duration-150 hover:scale-75 ' />
+									<OnSubmitButtons
+										noteId={note.id}
+										noteFav={note.isFavorite}
+										title={note.title}
+										description={note.description}
+									/>
+									<Link href={`/notes/${note.id}`}>
+										<SlArrowRight className='mx-1 text-3xl text-white duration-150 cursor-pointer hover:scale-75 ' />
+									</Link>
 								</div>
 							</div>
 						</CardFooter>

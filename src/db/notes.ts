@@ -1,4 +1,5 @@
 import { prisma } from './db'
+import { unstable_cache } from 'next/cache'
 
 export enum Category {
 	WORK = 'WORK',
@@ -32,7 +33,7 @@ export const createNote = async ({
 	return note
 }
 
-export const getAllNotes = async ({userId}: {userId: string}) => {
+export const getAllNotes = unstable_cache(async ({ userId }: { userId: string }) => {
 	const notes = await prisma.note.findMany({
 		where: {
 			inTrash: false,
@@ -40,27 +41,27 @@ export const getAllNotes = async ({userId}: {userId: string}) => {
 		},
 	})
 	return notes
-}
+})
 
-export const getNoteById = async (noteId: string) => {
+export const getNoteById = unstable_cache(async (noteId: string) => {
 	const note = await prisma.note.findUnique({
 		where: {
 			id: noteId,
 		},
 	})
 	return note
-}
+})
 
-export const getAllTrashNotes = async () => {
+export const getAllTrashNotes = unstable_cache(async () => {
 	const notes = await prisma.note.findMany({
 		where: {
 			inTrash: true,
 		},
 	})
 	return notes
-}
+})
 
-export const getFilteredNotes = async (search: string, category: Category) => {
+export const getFilteredNotes = unstable_cache(async (search: string, category: Category) => {
 	const notes = await prisma.note.findMany({
 		where: {
 			OR: [
@@ -81,7 +82,7 @@ export const getFilteredNotes = async (search: string, category: Category) => {
 		},
 	})
 	return notes
-}
+})
 
 export const makeFavorite = async (noteId: string, favorite: boolean) => {
 	const note = await prisma.note.update({
