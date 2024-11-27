@@ -3,9 +3,14 @@ import NoDeletedNotes from './EmptyDeletedNotes'
 import DeletedNotes from './DeletedNotes'
 import { getAllTrashNotes } from '@/db/notes'
 import { notFound } from 'next/navigation'
+import { auth } from '@/auth'
 
 const DeletedNotesPage = async () => {
-	const trashNotes = await getAllTrashNotes()
+	const session = await auth()
+
+	const trashNotes = await getAllTrashNotes({
+		userId: session?.user?.id as string,
+	})
 
 	if (trashNotes === null ) return notFound()
 

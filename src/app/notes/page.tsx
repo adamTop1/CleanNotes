@@ -42,7 +42,7 @@ const Home = async ({
 	}
 
 	if (query || modifiedCategory) {
-		const filteredNotes = await getFilteredNotesAction(query, modifiedCategory as Category)
+		const filteredNotes = await getFilteredNotesAction(query, modifiedCategory as Category, session?.user?.id as string)
 
 		if (filteredNotes === null) return notFound()
 

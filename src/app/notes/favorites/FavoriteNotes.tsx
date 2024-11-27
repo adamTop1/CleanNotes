@@ -20,7 +20,7 @@ const FavoriteNotes = ({
 	return (
 		<div className='grid gap-4 mx-6 grid-cols-2 xl:mx-10 my-10 min-[1200px]:grid-cols-3 min-[1600px]:grid-cols-4 max-md:flex max-md:flex-col'>
 			{favNotes.map((note, index) => {
-				const formattedDate = note.createdAt.toLocaleDateString('en-US', {
+				const formattedDate = new Date(note.createdAt).toLocaleDateString('en-US', {
 					year: 'numeric',
 					month: 'long',
 					day: 'numeric',

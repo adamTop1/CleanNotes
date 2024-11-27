@@ -30,7 +30,7 @@ const Notes = ({
 				</Link>
 			</Card>
 			{notes.map(note => {
-				const formattedDate = note.createdAt.toLocaleDateString('en-US', {
+				const formattedDate = new Date(note.createdAt).toLocaleDateString('en-US', {
 					year: 'numeric',
 					month: 'long',
 					day: 'numeric',

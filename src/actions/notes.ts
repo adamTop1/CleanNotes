@@ -68,8 +68,8 @@ export const restoreNoteAction = async (noteId: string) => {
 	return note
 }
 
-export const getFilteredNotesAction = async (search: string, category: Category) => {
-	const notes = await getFilteredNotes(search, category)
+export const getFilteredNotesAction = async (search: string, category: Category, userId: string) => {
+	const notes = await getFilteredNotes(search, category, userId)
 	revalidatePath('/')
 	revalidatePath('/notes/favorites')
 	return notes
