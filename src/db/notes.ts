@@ -33,7 +33,7 @@ export const createNote = async ({
 	return note
 }
 
-export const getAllNotes = unstable_cache(async ({ userId }: { userId: string }) => {
+export const getAllNotes = async ({ userId }: { userId: string }) => {
 	const notes = await prisma.note.findMany({
 		where: {
 			inTrash: false,
@@ -41,18 +41,18 @@ export const getAllNotes = unstable_cache(async ({ userId }: { userId: string })
 		},
 	})
 	return notes
-})
+}
 
-export const getNoteById = unstable_cache(async (noteId: string) => {
+export const getNoteById = async (noteId: string) => {
 	const note = await prisma.note.findUnique({
 		where: {
 			id: noteId,
 		},
 	})
 	return note
-})
+}
 
-export const getAllTrashNotes = unstable_cache(async ({ userId }: { userId: string }) => {
+export const getAllTrashNotes = async ({ userId }: { userId: string }) => {
 	const notes = await prisma.note.findMany({
 		where: {
 			inTrash: true,
@@ -60,9 +60,9 @@ export const getAllTrashNotes = unstable_cache(async ({ userId }: { userId: stri
 		},
 	})
 	return notes
-})
+}
 
-export const getFilteredNotes = unstable_cache(async (search: string, category: Category, userId: string) => {
+export const getFilteredNotes = async (search: string, category: Category, userId: string) => {
 	const notes = await prisma.note.findMany({
 		where: {
 			OR: [
@@ -84,7 +84,7 @@ export const getFilteredNotes = unstable_cache(async (search: string, category: 
 		},
 	})
 	return notes
-})
+}
 
 export const makeFavorite = async (noteId: string, favorite: boolean) => {
 	const note = await prisma.note.update({
